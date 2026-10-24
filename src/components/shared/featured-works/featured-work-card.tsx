@@ -84,7 +84,7 @@ const FeaturedWorkCard = ({ project, variant = 'grid', imageSide = 'right' }: Fe
               alt={project.title}
               className={cn(
                 'w-full object-cover transition-all duration-300 group-hover:scale-105',
-                isHero ? 'h-full max-h-81' : 'max-h-68'
+                isHero ? 'h-full max-h-81' : 'h-68 object-top'
               )}
             />
           </div>

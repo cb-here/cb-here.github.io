@@ -56,11 +56,7 @@ const ContactHero = () => {
 
           <div className='order-1 mx-auto flex h-full max-h-130 w-full flex-col lg:order-2'>
             <div className='relative w-full overflow-hidden rounded-3xl'>
-              <img
-                src='/images/services/service-bg.webp'
-                alt='Chandrabhushan Vishwakarma'
-                className='max-h-93.5 w-full object-cover'
-              />
+              <div className='aspect-square max-h-93.5 w-full bg-white bg-[radial-gradient(circle_at_50%_55%,rgb(59_130_246/0.12),transparent_60%)] dark:bg-zinc-200' />
 
               <motion.div
                 className='absolute bottom-0 max-lg:left-1/2 max-lg:-translate-x-1/2'
@@ -71,9 +67,9 @@ const ContactHero = () => {
                 onMouseLeave={handleMouseLeave}
               >
                 <img
-                  src='/images/services/services-profile.webp'
+                  src='/images/services/services-profile-pixel.png'
                   alt='Chandrabhushan Vishwakarma'
-                  className='max-w-105 object-cover'
+                  className='max-w-105 object-cover [image-rendering:pixelated]'
                 />
               </motion.div>
 
