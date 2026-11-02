@@ -24,17 +24,9 @@ import GithubIcon from '@/assets/svg/github-icon'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent } from '@/components/ui/card'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import ContributionGraph from './contribution-graph'
 
 import { cn } from '@/lib/utils'
-
-const CONTRIBUTION_LEVEL_STYLES = [
-  'bg-background',
-  'bg-[#9be9a8] dark:bg-[#0e4429]',
-  'bg-[#40c463] dark:bg-[#006d32]',
-  'bg-[#30a14e] dark:bg-[#26a641]',
-  'bg-[#216e39] dark:bg-[#39d353]'
-]
 
 const GITHUB_USERNAME = 'cb-here'
 
@@ -92,36 +84,7 @@ const ActivityCard = async () => {
           </div>
         </a>
 
-        {contributions && (
-          <div
-            className='grid gap-0.5 sm:gap-1'
-            style={{ gridTemplateColumns: `repeat(${contributions.rows[0].length}, minmax(0, 1fr))` }}
-          >
-            {contributions.rows.flatMap((row, rowIndex) =>
-              row.map((cell, columnIndex) =>
-                cell ? (
-                  <Tooltip key={cell.date}>
-                    <TooltipTrigger
-                      render={
-                        <span
-                          className={cn(
-                            'aspect-square rounded-[2px] transition-transform duration-150 hover:scale-125 sm:rounded-xs',
-                            CONTRIBUTION_LEVEL_STYLES[cell.level]
-                          )}
-                        />
-                      }
-                    />
-                    <TooltipContent className='dark:text-primary bg-black font-medium [&>*:last-child]:hidden'>
-                      {cell.label}
-                    </TooltipContent>
-                  </Tooltip>
-                ) : (
-                  <span key={`${rowIndex}-${columnIndex}`} className='aspect-square' />
-                )
-              )
-            )}
-          </div>
-        )}
+        {contributions && <ContributionGraph rows={contributions.rows} />}
       </CardContent>
 
       <div className='border-border -mx-6 border-t' />
